@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "internetUsageStatics",
 ]
 
 MIDDLEWARE = [
@@ -77,9 +78,16 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
-    }
+    },
+    "users": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "users_details",
+        "USER": "root",
+        "PASSWORD": "root",
+    },
 }
 
+DATABASE_ROUTERS = ["internetUsageStatics.models.DataUsageRouter"]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
